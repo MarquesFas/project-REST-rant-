@@ -1,12 +1,14 @@
 const React = require('react')
-const Def = require('./default')
+const Def = require('../default')
 
-function index () {
+function index (data) {
     return (
       <Def>
           <main>
-              <h1>404: PAGE NOT FOUND</h1>
-              <p>Oops, sorry, we can't find this page!</p>
+              <h1>My places</h1>
+              <div>
+                {data.places.map(place => <p>{place.name}</p>)}
+              </div>
           </main>
       </Def>
     )
@@ -14,9 +16,3 @@ function index () {
 
 module.exports = index
 
-// GET /places
-app.get('/', (req, res) => {
-    let places = []
-    res.render('places/index')
-  })
-  
