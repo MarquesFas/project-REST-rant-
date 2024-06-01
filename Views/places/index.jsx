@@ -6,9 +6,16 @@ function index (data) {
       <Def>
           <main>
               <h1>My places</h1>
-              <div>
-                {data.places.map(place => <p>{place.name}</p>)}
+              <div style={{display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column'}}>
+                {data.places.map(place => 
+                  <div >
+                    {place.name}
+                    <a href={`/places/${place.id}/edit`}>Edit</a>
+                  </div>
+                )}
               </div>
+
+              <button><a href="/places/new">Add a new Place</a></button>
           </main>
       </Def>
     )
